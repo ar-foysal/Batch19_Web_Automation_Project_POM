@@ -15,7 +15,6 @@ public class DriverSetup {
     private static final ThreadLocal<WebDriver> LOCAL_DRIVER = new ThreadLocal<>();
 
     public static void setDriver(WebDriver driver){
-        System.out.println("HEllO0");
         DriverSetup.LOCAL_DRIVER.set(driver);
     }
 

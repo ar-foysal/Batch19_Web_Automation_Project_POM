@@ -28,7 +28,16 @@ public class TestHomePage extends DriverSetup {
     public void testHomePageRegistrationButton(){
         getDriver().get(homePage.homePageUrl);
         homePage.clickOnElement(homePage.registerButton);
+        Assert.assertTrue(homePage.isElementVisible(homePage.registerButton));
         Assert.assertEquals(getDriver().getCurrentUrl(), registrationPage.registrationPageUrl);
+    }
+
+    @Test
+    public void testHomePageLoginButton(){
+        getDriver().get(homePage.homePageUrl);
+        homePage.clickOnElement(homePage.loginButton);
+        Assert.assertTrue(homePage.isElementVisible(homePage.loginButton));
+        Assert.assertEquals(getDriver().getCurrentUrl(),loginPage.loginPageURL);
     }
 
 
