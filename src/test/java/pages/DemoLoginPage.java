@@ -9,4 +9,11 @@ public class DemoLoginPage extends BasePage{
     public By password = By.xpath("//input[@id='password']");
     public By loginButton = By.xpath("//input[@id='login-button']");
     public By error = By.xpath("//h3[@data-test='error']");
+
+
+    public void doLogin(String username_text, String password_text){
+        writeOnElement(username, username_text);
+        writeOnElement(password, password_text);
+        clickOnElement(loginButton);
+    }
 }
