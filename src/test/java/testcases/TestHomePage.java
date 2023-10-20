@@ -1,11 +1,15 @@
 package testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.RegistrationPage;
 import utilities.DriverSetup;
+
+import java.util.List;
 
 public class TestHomePage extends DriverSetup {
     HomePage homePage = new HomePage();
@@ -40,6 +44,15 @@ public class TestHomePage extends DriverSetup {
         Assert.assertEquals(getDriver().getCurrentUrl(),loginPage.loginPageURL);
     }
 
+    @Test
+    public void getAllUrl(){
+        getDriver().get(homePage.homePageUrl);
+        List<WebElement> linkElements = getDriver().findElements(By.xpath("//a"));
+        System.out.println("Total count: " + linkElements.size());
+        for (int i =0; i<linkElements.size(); i++ ){
+            System.out.println(linkElements.get(i).getText() + ": " +linkElements.get(i).getAttribute("href"));
+        }
+    }
 
 
 }
