@@ -1,5 +1,6 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.ByteArrayInputStream;
 import java.time.Duration;
+import java.util.Locale;
 
 import static utilities.DriverSetup.getDriver;
 
@@ -59,6 +61,24 @@ public class BasePage {
 
     public void addScreenShot(String name){
         Allure.addAttachment(name, new ByteArrayInputStream(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES)));
+    }
+
+    static Faker faker = new Faker(new Locale("en-US"));
+
+    public String emailGenerate() {
+        return faker.bothify("????##@mail.com");
+    }
+
+    public String firstNameGenerate() {
+        return faker.name().firstName();
+    }
+
+    public String lastNameGenerate() {
+        return faker.name().lastName();
+    }
+
+    public String phoneNumberGenerate() {
+        return faker.numerify("###-###-####");
     }
 
 }

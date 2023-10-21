@@ -49,10 +49,14 @@ public class TestHomePage extends DriverSetup {
         getDriver().get(homePage.homePageUrl);
         List<WebElement> linkElements = getDriver().findElements(By.xpath("//a"));
         System.out.println("Total count: " + linkElements.size());
-        for (int i =0; i<linkElements.size(); i++ ){
+        for (int i = 0; i < linkElements.size(); i++ ){
             System.out.println(linkElements.get(i).getText() + ": " +linkElements.get(i).getAttribute("href"));
         }
     }
 
 
+    @Test
+    public void testWithData(){
+        System.out.println(homePage.firstNameGenerate() +" "+ homePage.lastNameGenerate());
+    }
 }

@@ -2,3 +2,6 @@ mvn test
 mvn test -Dbrowser="edge"
 mvn test -Dbrowser="edge" -DxmlFileName="demo.xml"
 mvn test -Dbrowser="edge" -DtestClassName="DemoLoginTest.java"
+
+allure generate ./allure-results --clean
+allure open ./allure-report
